@@ -1,0 +1,2 @@
+gunzip regression_data_150_peakCount_20230122.csv.gz
+python get_regress_peak.py
