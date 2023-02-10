@@ -99,12 +99,18 @@ optional arguments:
 
 ```bash
 python test5leaderL.py -h 
-usage: test5leaderL.py [-h] [--test_data_path TEST_DATA_PATH] [--test_label_path TEST_LABEL_PATH] [--output OUTPUT]
+usage: test5leaderL.py [-h] [--model {cnn,gru,lstm,resnet} [{cnn,gru,lstm,resnet} ...]] [--model_dir MODEL_DIR] [--scaler SCALER]
+                       [--test_data_path TEST_DATA_PATH] [--test_label_path TEST_LABEL_PATH] [--output OUTPUT]
 
 PyTorch Implementation of aTSS Predict
 
 optional arguments:
   -h, --help            show this help message and exit
+  --model {cnn,gru,lstm,resnet} [{cnn,gru,lstm,resnet} ...]
+                        model name
+  --model_dir MODEL_DIR
+                        models saved dir
+  --scaler SCALER       scaler to transform test data
   --test_data_path TEST_DATA_PATH
                         test data saved in numpy ndarray
   --test_label_path TEST_LABEL_PATH
