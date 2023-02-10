@@ -74,14 +74,16 @@ optional arguments:
 #### 5'leaderL
 
 ```bash 
-python train5leaderL.py -h 
-usage: train5leaderL.py [-h] [--train_data_path TRAIN_DATA_PATH] [--train_label_path TRAIN_LABEL_PATH] [--batch_size BATCH_SIZE]
-                        [--epoch EPOCH] [--lr LR] [--lr_decay LR_DECAY] [--model_saved MODEL_SAVED]
+usage: train5leaderL.py [-h] [--model {cnn,gru,lstm,resnet} [{cnn,gru,lstm,resnet} ...]] [--train_data_path TRAIN_DATA_PATH]
+                        [--train_label_path TRAIN_LABEL_PATH] [--batch_size BATCH_SIZE] [--epoch EPOCH] [--lr LR] [--lr_decay LR_DECAY]
+                        [--model_saved_suffix MODEL_SAVED_SUFFIX]
 
 PyTorch Implementation of aTSS Predict
 
 optional arguments:
   -h, --help            show this help message and exit
+  --model {cnn,gru,lstm,resnet} [{cnn,gru,lstm,resnet} ...]
+                        model name
   --train_data_path TRAIN_DATA_PATH
                         train data saved in numpy ndarray
   --train_label_path TRAIN_LABEL_PATH
@@ -91,8 +93,8 @@ optional arguments:
   --epoch EPOCH         train epoch(default: 10)
   --lr LR               learning rate (default: 0.001)
   --lr_decay LR_DECAY   learning rate decay (default: 0.95)
-  --model_saved MODEL_SAVED
-                        model saved name
+  --model_saved_suffix MODEL_SAVED_SUFFIX
+                        model saved suffix (default: None)
 ```
 
 ```bash
