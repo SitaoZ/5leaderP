@@ -5,9 +5,8 @@
 ## Brief introduction of 5'leaderP package
 
 ### Install
-Two way offer to install 5'leaderP module.
 
-#### install command line
+#### Command line
 
 ```bash
 git clone https://github.com/SitaoZ/5leaderP.git
@@ -93,7 +92,8 @@ optional arguments:
 
 #### 5'leaderL
 
-```bash 
+```bash
+python train5leaderL.py -h 
 usage: train5leaderL.py [-h] [--model {cnn,gru,lstm,resnet} [{cnn,gru,lstm,resnet} ...]] [--train_data_path TRAIN_DATA_PATH]
                         [--train_label_path TRAIN_LABEL_PATH] [--batch_size BATCH_SIZE] [--epoch EPOCH] [--lr LR] [--lr_decay LR_DECAY]
                         [--model_saved_suffix MODEL_SAVED_SUFFIX]
@@ -139,6 +139,7 @@ optional arguments:
 ```
 
 ```bash
+python predict5leaderL.py -h 
 usage: predict5leaderL.py [-h] [--predict_data_path PREDICT_DATA_PATH] [--output OUTPUT]
 
 PyTorch Implementation of aTSS Predict
@@ -156,8 +157,8 @@ optional arguments:
 
 ```bash
 python train5leaderC.py --model resnet \
-             --train_data_path ../../../../data/unique/class_data.npy \
-             --train_label_path ../../../../data/unique/class_label.npy \
+             --train_data_path data/class_data.npy \
+             --train_label_path data/class_label.npy \
              --lr 0.001 --batch_size 64 \
              --model_save saved_model --epoch 100
 ```
@@ -165,8 +166,8 @@ python train5leaderC.py --model resnet \
 #### 5'leaderL
 
 ```bash 
-python train5leaderL.py --train_data_path ../../data/new_regress/regress_data_peak.npy \
-                  --train_label_path ../../data/new_regress/regress_label_peak.npy \
+python train5leaderL.py --train_data_path data/regress_data_peak.npy \
+                  --train_label_path data/regress_label_peak.npy \
                   --lr 0.001 --batch_size 256 \
                   --model_saved saved_model --epoch 300
 ```
