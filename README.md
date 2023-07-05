@@ -1,5 +1,5 @@
 # 5'leaderP
-5' end predictor (5′leaderP) can use different neural networks to classify (i.e., 5'leaderC, 5' leader classifier model) and locate the aTSS regions (i.e., 5'leaderL, 5' leader locator model)
+5'leaderP (5'-end predictor ) can use different neural networks to classify (i.e., 5'leaderC, 5' leader classifier model) and locate the aTSS regions (i.e., 5'leaderL, 5' leader locator model)
 
 
 ## Brief introduction of 5'leaderP package
@@ -71,6 +71,26 @@ optional arguments:
                         model saved name
 ```
 
+```bash
+python predict5leaderC.py -h 
+usage: predict5leaderC.py [-h] [--model {lr,cnn,gru,lstm,attention,resnet}] [--predict_data_path PREDICT_DATA_PATH]
+                          [--model_dict_path MODEL_DICT_PATH] [--output_path OUTPUT_PATH]
+
+PyTorch Implementation of aTSS Predict
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --model {lr,cnn,gru,lstm,attention,resnet}
+                        model name
+  --predict_data_path PREDICT_DATA_PATH
+                        contain two columns (seq,label) separated by comma
+  --model_dict_path MODEL_DICT_PATH
+                        model saved name
+  --output_path OUTPUT_PATH
+                        output path
+
+```
+
 #### 5'leaderL
 
 ```bash 
@@ -117,6 +137,19 @@ optional arguments:
                         test label saved in numpy ndarray
   --output OUTPUT       output path
 ```
+
+```bash
+usage: predict5leaderL.py [-h] [--predict_data_path PREDICT_DATA_PATH] [--output OUTPUT]
+
+PyTorch Implementation of aTSS Predict
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --predict_data_path PREDICT_DATA_PATH
+                        predict data saved in csv
+  --output OUTPUT       output path
+```
+
 ### Examples
 
 #### 5'leaderC
@@ -136,6 +169,45 @@ python train5leaderL.py --train_data_path ../../data/new_regress/regress_data_pe
                   --train_label_path ../../data/new_regress/regress_label_peak.npy \
                   --lr 0.001 --batch_size 256 \
                   --model_saved saved_model --epoch 300
+```
+
+
+### Prediction
+
+```bash
+# process BED to seq 
+python data_preprocess_in_predict.py -h 
+usage: data_preprocess_in_predict.py [-h] [-b TRANSCRIPT_BED_FILE] [-g GENOME_FASTA_FILE] [-s SAMPLE_SIZE] [-o OUTPUT_FILE_PATH]
+
+PyTorch Implementation of TSAR Predict
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -b TRANSCRIPT_BED_FILE, --transcript_bed_file TRANSCRIPT_BED_FILE
+                        transcript bed file contians chrom, start, end, name, ., strand
+  -g GENOME_FASTA_FILE, --genome_fasta_file GENOME_FASTA_FILE
+                        genome fasta file
+  -s SAMPLE_SIZE, --sample_size SAMPLE_SIZE
+                        sample selection size (default: 4)
+  -o OUTPUT_FILE_PATH, --output_file_path OUTPUT_FILE_PATH
+                        output file for TSAR predict
+
+# bed example
+head example.csv
+Chr1	2776973	2781975	LOC_Os01g05810.1	.	+
+Chr2	16617411	16634036	LOC_Os02g28074.1	.	+
+Chr8	16331761	16334349	LOC_Os08g26850.1	.	-
+# processing
+python data_preprocess_in_predict.py -b example.csv -g msu7.fa -s 1 -o example_seq.csv
+
+# predcition in 5leaderC
+# change to 5leaderC model saved directory then predict
+python predict5leaderC.py --model resnet --predict_data_path example_seq.csv --model_dict_path resnet.pt --output_path example_C_result
+
+# predcition in 5leaderL
+# change to 5leaderL model saved directory then predcit
+python predict5leaderL.py --predict_data_path example_seq.csv --output example_L_seq.csv
+
 ```
     
 
