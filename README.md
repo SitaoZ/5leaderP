@@ -154,16 +154,18 @@ optional arguments:
 ### Examples
 
 #### 5'leaderC
+Due to the limited storage capacity, the 5'leaderC training datasets in npy format are manually processed using the get_classification.py script, which can be found in each respective data directory.
 
 ```bash
 python train5leaderC.py --model resnet \
-             --train_data_path data/class_data.npy \
-             --train_label_path data/class_label.npy \
+             --train_data_path  data/Arabidopsis/classification/class_data.npy \
+             --train_label_path data/Arabidopsis/classification/class_label.npy \
              --lr 0.001 --batch_size 64 \
              --model_save saved_model --epoch 100
 ```
     
 #### 5'leaderL
+Due to the limited storage capacity, the 5'leaderL training datasets in npy format are manually processed using the get_regress_peak.py script, which can be found in each respective data directory.
 
 ```bash 
 python train5leaderL.py --train_data_path data/regress_data_peak.npy \
@@ -173,7 +175,7 @@ python train5leaderL.py --train_data_path data/regress_data_peak.npy \
 ```
 
 
-### Prediction
+#### Prediction
 
 ```bash
 # process BED to seq 
@@ -193,13 +195,13 @@ optional arguments:
   -o OUTPUT_FILE_PATH, --output_file_path OUTPUT_FILE_PATH
                         output file for TSAR predict
 
-# bed example
-head example.csv
+# BED example
+head example.bed
 Chr1	2776973	2781975	LOC_Os01g05810.1	.	+
 Chr2	16617411	16634036	LOC_Os02g28074.1	.	+
 Chr8	16331761	16334349	LOC_Os08g26850.1	.	-
 # processing
-python data_preprocess_in_predict.py -b example.csv -g msu7.fa -s 1 -o example_seq.csv
+python data_preprocess_in_predict.py -b example.bed -g msu7.fa -s 1 -o example_seq.csv
 
 # predcition in 5leaderC
 # change to 5leaderC model saved directory then predict
