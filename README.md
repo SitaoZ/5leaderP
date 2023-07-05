@@ -182,7 +182,7 @@ python train5leaderL.py --train_data_path data/regress_data_peak.npy \
 python data_preprocess_in_predict.py -h 
 usage: data_preprocess_in_predict.py [-h] [-b TRANSCRIPT_BED_FILE] [-g GENOME_FASTA_FILE] [-s SAMPLE_SIZE] [-o OUTPUT_FILE_PATH]
 
-PyTorch Implementation of TSAR Predict
+PyTorch Implementation of aTSS Predict
 
 optional arguments:
   -h, --help            show this help message and exit
