@@ -190,8 +190,6 @@ optional arguments:
                         transcript bed file contians chrom, start, end, name, ., strand
   -g GENOME_FASTA_FILE, --genome_fasta_file GENOME_FASTA_FILE
                         genome fasta file
-  -s SAMPLE_SIZE, --sample_size SAMPLE_SIZE
-                        sample selection size (default: 4)
   -o OUTPUT_FILE_PATH, --output_file_path OUTPUT_FILE_PATH
                         output file for TSAR predict
 
@@ -201,7 +199,7 @@ Chr1	2776973	2781975	LOC_Os01g05810.1	.	+
 Chr2	16617411	16634036	LOC_Os02g28074.1	.	+
 Chr8	16331761	16334349	LOC_Os08g26850.1	.	-
 # processing
-python data_preprocess_in_predict.py -b example.bed -g msu7.fa -s 1 -o example_seq.csv
+python data_preprocess_in_predict.py -b example.bed -g msu7.fa -o example_seq.csv
 
 # predcition in 5leaderC
 # change to 5leaderC model saved directory then predict
