@@ -12,8 +12,6 @@ def parse_args():
                         help='transcript bed file contians chrom, start, end, name, ., strand')
     parser.add_argument('-g', '--genome_fasta_file', type=str,
                         help='genome fasta file')
-    parser.add_argument('-s', '--sample_size',default=4, type=int,
-                        help='sample selection size (default: 4)')
     parser.add_argument('-o', '--output_file_path', type=str,
                         help='output file for TSAR predict')
     return parser.parse_args()
