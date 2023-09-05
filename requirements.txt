@@ -140,7 +140,7 @@ jedi=0.17.1=py38_0
 jeepney=0.4.3=py_0
 jinja2=2.11.2=py_0
 jmespath=0.10.0=pypi_0
-joblib=0.16.0=py_0
+joblib=1.2.0=pypi_0
 jpeg=9b=h024ee3a_2
 json5=0.9.5=py_0
 jsonschema=3.2.0=py38_0
@@ -377,9 +377,6 @@ tbb=2020.0=hfd86e86_0
 tblib=1.6.0=py_0
 tensorboard=2.9.1=pypi_0
 tensorboard-plugin-wit=1.8.1=pypi_0
-tensorflow=2.9.1=pypi_0
-tensorflow-estimator=2.9.0=pypi_0
-tensorflow-io-gcs-filesystem=0.26.0=pypi_0
 termcolor=1.1.0=pypi_0
 terminado=0.8.3=py38_0
 testpath=0.4.4=py_0
