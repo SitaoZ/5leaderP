@@ -71,7 +71,7 @@ def predict(config):
     seed_torch(seed=12)
     # data
     df = pd.read_csv(config.predict_data_path)
-    df.loc[:,'onehot'] = df.Seqs.apply(lambda x: oneHot(x))
+    df.loc[:,'onehot'] = df.Seq.apply(lambda x: oneHot(x))
     # model
     model = Models[config.model]
     model.load_state_dict(torch.load(config.model_dict_path, map_location ='cpu'))
@@ -94,12 +94,11 @@ def predict(config):
                 Predict.append(1)
             else:
                 Predict.append(0)
-    df.loc[:, 'Predict2'] = Predict
+    df.loc[:, 'Predict'] = Predict
     df.loc[:, 'Probabs'] = Probabs
 
-    # print(accuracy_score(df.Label, df.Predict))
-    print(accuracy_score(df.Label, df.Predict2))
-    df[['Predict','Predict2','Label','Seq',]].to_csv(config.output_path, index=False)
+    print(accuracy_score(df.Label, df.Predict))
+    df[['Predict','Label','Seq',]].to_csv(config.output_path, index=False)
 
 def main():
     config = parse_args()
