@@ -14,7 +14,7 @@ import argparse
 import numpy as np
 import pandas as pd
 from aTSS.models import GruNet, LogisticRegression
-from aTSS.models import CnnNet, LstmNet, AttenNet
+from aTSS.models import CnnNet, LstmNet, AttenNet, ResNet
 from sklearn.metrics import accuracy_score
 
 Models = {
@@ -23,13 +23,14 @@ Models = {
     'gru': GruNet(256, 128),
     'lstm': LstmNet(256, 128),
     'attention':AttenNet(),
+    'resnet': ResNet()
 }
 
 def parse_args():
     parser = argparse.ArgumentParser(description='PyTorch Implementation of aTSS Predict')
 
     parser.add_argument('--model', type=str, help='model name',
-                        choices=['lr','cnn','gru','lstm','attention'])
+                        choices=['lr','cnn','gru','lstm','resnet','attention'])
     parser.add_argument('--predict_data_path', type=str,
                         default='csv for predict',
                         help='contain two columns (seq,label) separated by comma')
@@ -98,7 +99,7 @@ def predict(config):
 
     # print(accuracy_score(df.Label, df.Predict))
     print(accuracy_score(df.Label, df.Predict2))
-    df[['Predict','Predict2','Label','Seqs',]].to_csv(config.output_path, index=False)
+    df[['Predict','Predict2','Label','Seq',]].to_csv(config.output_path, index=False)
 
 def main():
     config = parse_args()
