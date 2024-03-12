@@ -1,3 +1,12 @@
+#!/home/zhusitao/anaconda3/bin/python
+# -*- coding:utf-8 -*-
+'''
+filename: inherit_feature_from_genome.py
+date: 2022/2/13 4:54 PM
+author: Sitao Zhu
+mail: zhusitao1990@163.com
+'''
+
 import re
 import pandas as pd 
 from collections import defaultdict
