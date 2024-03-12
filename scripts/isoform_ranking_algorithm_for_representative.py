@@ -9,11 +9,23 @@ mail: zhusitao1990@163.com
 
 
 import os
+import sys
 import glob
+import argparse
 import pandas as pd
 
-def t2g():
-    gff_path = '/home/zhusitao/database/plant/ath/merge_gff/01.merge/mani/gff_inherit/All_Archetypal_isoforms_Arabidopsis_V1.0/GeneID/All_isoforms_V1.0_GeneID_transformed.gff'
+def parameters_parse():
+    parser = argparse.ArgumentParser(description='Ranking-algorithm implementation')
+
+    parser.add_argument('--gff', '-f', type=str,
+                        help='General Feature Format(GFF)')
+    parser.add_argument('--exp_dir', '-i', type=str,
+                        help='A dir contains expression file (ends with isoforms.results) from RSEM')
+    parser.add_argument('--output', '-o', type=str,
+                        help='representative isoform filename')
+    return parser.parse_args()
+    
+def t2g(gff_path):
     tr2gene = dict()
     with open(gff_path, 'r') as f:
         for line in f:
@@ -71,7 +83,7 @@ def samplePath(Paths):
     files = glob.glob(Paths)
     return files
 
-def integrateSample(sampleFiles):
+def integrateSample(sampleFiles, args):
     tr2gene = t2g()
     total = pd.DataFrame(columns=['transcript_id'])
     for sample in sampleFiles:
@@ -95,15 +107,20 @@ def integrateSample(sampleFiles):
     # represent
     total = pd.read_csv('zz_kw_whole_transcripts_rank.csv')
     represent = total.iloc[total.groupby('gene_id')['Rank'].idxmax()]
-    represent.to_csv('zz_kw_represent_transcripts.csv', index=False)
+    represent.to_csv(f'{args.output}', index=False)
 
 
 
 def main():
-    Paths = '../pysradb_downloads_*/*/*/assemble/13.All_isoforms_rsem/*.isoforms.results.M'
+    args = parameters_parse()
+    print(args)
+    outfile = args.output
+    expfile = args.exp_dir
+    if not outfile or not expfile:
+        sys.exit('The outfile or exp_dir was not specified')
+    Paths = f'{expfile}/*.isoforms.results'
     sampleFiles = samplePath(Paths)
-    print('样本数：',len(sampleFiles))
-    integrateSample(sampleFiles)
+    integrateSample(sampleFiles, args)
 
 
 
