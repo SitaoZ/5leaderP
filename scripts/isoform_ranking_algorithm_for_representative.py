@@ -1,7 +1,7 @@
 #!/home/zhusitao/anaconda3/bin/python
 # -*- coding:utf-8 -*-
 '''
-filename: get_abundance_transcript.py
+filename: isoform_ranking_algorithm_for_representative.py
 date: 2022/3/30 4:54 PM
 author: Sitao Zhu
 mail: zhusitao1990@163.com
