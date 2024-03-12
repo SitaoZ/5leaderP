@@ -1,3 +1,12 @@
+#!/home/zhusitao/anaconda3/bin/python
+# -*- coding:utf-8 -*-
+'''
+filename: recorrect_gff.py
+date: 2022/2/15 3:43 PM
+author: Sitao Zhu
+mail: zhusitao1990@163.com
+'''
+
 import re 
 from collections import OrderedDict
 
