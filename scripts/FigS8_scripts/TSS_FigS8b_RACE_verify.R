@@ -1,4 +1,4 @@
-# RCAE验证20个基因
+# RCAE验证21个基因
 
 library(ggplot2)
 setwd('/Users/zhusitao/R_workspace/R_script/project/TSS_annotation/RACE_verify/')
