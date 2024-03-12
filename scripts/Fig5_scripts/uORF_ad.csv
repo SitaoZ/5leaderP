@@ -1,0 +1,11 @@
+Species,Source,Count
+arabidopsis,truncated,11728
+arabidopsis,longest,17576
+rice,truncated,11778
+rice,longest,15139
+cotton,truncated,12922
+cotton,longest,18000
+maize,truncated,14301
+maize,longest,20751
+soybean,truncated,25284
+soybean,longest,33180
