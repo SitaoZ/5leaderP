@@ -2,61 +2,8 @@
 
 library(ggplot2)
 setwd('/Users/zhusitao/R_workspace/R_script/project/TSS_annotation/RACE_verify/')
-
-# TBF1
-df <- read.csv('TBF1.csv')
-df$Ratio <- df$depth/max(df$depth)
-head(df)
-ID <- head(df$ts,1)
-ID <- gsub('-cdna', '', ID)
-ID
-ggplot(data = df, aes(x = posi, y = Ratio, color = Source)) + 
-  geom_line() + theme_classic() + ylab('Ratio of depth') + 
-  xlab("Transcript coordinates") + ggtitle(ID) + 
-  theme(plot.title = element_text(hjust = 0.5))
-ggsave('TBF1.pdf', width = 8, height = 6,units = 'in',dpi=300)
-
-# ath
-Ats <- c(1,2,3,4,5,6,7,9,10)
-for (i in Ats){
-  path <- sprintf("At%d.csv", i)
-  out_name <- gsub('.csv', '.pdf' ,path)
-  df <- read.csv(path)
-  df$Ratio <- df$depth/max(df$depth)
-  head(df)
-  ID <- head(df$ts,1)
-  ID <- gsub('-cdna', '', ID)
-  ID
-  ggplot(data = df, aes(x = posi, y = Ratio, color = Source)) + 
-    geom_line() + theme_classic() + ylab('Ratio of depth') + 
-    xlab("Transcript coordinates") + ggtitle(ID) + 
-    theme(plot.title = element_text(hjust = 0.5))
-  ggsave(out_name, width = 8, height = 6,units = 'in',dpi=300)
-}
-
-# rice 
-Oss <- c(1,2,4,5,8,10)
-for (i in Oss){
-  path <- sprintf("Os%d.csv", i)
-  out_name <- gsub('.csv', '.pdf' ,path)
-  df <- read.csv(path)
-  df$Ratio <- df$depth/max(df$depth)
-  head(df)
-  ID <- head(df$ts,1)
-  ID <- gsub('-cdna', '', ID)
-  ID
-  ggplot(data = df, aes(x = posi, y = Ratio, color = Source)) + 
-    geom_line() + theme_classic() + ylab('Ratio of depth') + 
-    xlab("Transcript coordinates") + ggtitle(ID) + 
-    theme(plot.title = element_text(hjust = 0.5))
-  ggsave(out_name, width = 8, height = 6,units = 'in',dpi=300)
-}
-
-
 # End Count read的5' 端比对的情况
-
 # TBF1
-setwd('/Users/zhusitao/R_workspace/R_script/project/TSS_annotation/RACE_verify/')
 df <- read.csv('TBF1_read.csv')
 head(df)
 df$Ratio <- df$ReadCount/max(df$ReadCount)
