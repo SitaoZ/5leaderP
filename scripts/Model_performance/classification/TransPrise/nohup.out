@@ -1,0 +1,35 @@
+2022-01-12 22:05:16.890729: W tensorflow/stream_executor/platform/default/dso_loader.cc:64] Could not load dynamic library 'libcudart.so.11.0'; dlerror: libcudart.so.11.0: cannot open shared object file: No such file or directory; LD_LIBRARY_PATH: /home/zhusitao/software/third_generation_seq/htslib-1.14/lib:/home/zhusitao/software/RNA_assemble/libpng-1.6.37/lib:/usr/lib64:/usr/local/lib64/:/usr/local/lib
+2022-01-12 22:05:16.890818: I tensorflow/stream_executor/cuda/cudart_stub.cc:29] Ignore above cudart dlerror if you do not have a GPU set up on your machine.
+Using TensorFlow backend.
+Chromosomes found: ['Chr1', 'Chr2', 'Chr3', 'Chr4', 'Chr5', 'Chr6', 'Chr7', 'Chr8', 'Chr9', 'Chr10', 'Chr11', 'Chr12']
+Chromosomes for test: ['Chr9']
+Writing train_sequences.fa...
+Writing test_sequences.fa...
+Writing train_tss_pos.fa...
+Writing test_tss_pos.fa...
+Beyond genes space data is ready
+Classification dataset assembler works... Features: A, C, G, T,  Classification dataset assembler works... Features: A, C, G, T,  Regression dataset assembler works... Features: A, C, G, T,  Regression dataset assembler works... Features: A, C, G, T,  Using Theano backend.
+/home/zhusitao/anaconda3/envs/TP/lib/python3.7/site-packages/sklearn/utils/validation.py:37: DeprecationWarning: distutils Version classes are deprecated. Use packaging.version instead.
+  LARGE_SPARSE_SUPPORTED = LooseVersion(scipy_version) >= '0.14.0'
+/home/zhusitao/AI/TSS_Predict/ath/TSARC_TSSPlant_TransPrise/TransPrise/models.py:41: UserWarning: Update your `Model` call to the Keras 2 API: `Model(inputs=/input_1, outputs=sigmoid.0)`
+  class_mod = Model(input=inp, output=out)
+/home/zhusitao/anaconda3/envs/TP/lib/python3.7/site-packages/keras/utils/conv_utils.py:93: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return np.copy(kernel[slices])
+WARNING (theano.configdefaults): install mkl with `conda install mkl-service`: No module named 'mkl'
+/home/zhusitao/anaconda3/envs/TP/lib/python3.7/site-packages/keras/utils/conv_utils.py:93: FutureWarning: Using a non-tuple sequence for multidimensional indexing is deprecated; use `arr[tuple(seq)]` instead of `arr[seq]`. In the future this will be interpreted as an array index, `arr[np.array(seq)]`, which will result either in an error or a different result.
+  return np.copy(kernel[slices])
+Training classification model
+TP: 179 ; TN: 1063 ; FP: 11 ; FN: 923
+Accuracy: 0.5707720588235294
+Sensetivity: 0.16243194192377494
+Specificity: 0.9897579143389199
+Correlation coefficient: 0.26953317195195425
+AUC: 0.8236446684038163
+Training regression model
+MSE: 125671.372
+MAE/RMSE: 349.78
+Time for extract sequences from input data: 1.1920928955078125e-06
+Time for classification dataset 2.384185791015625e-07
+Time for regression dataset 4.76837158203125e-07
+Time for classification model 54.81257462501526
+Time for regression model 6.145488500595093
