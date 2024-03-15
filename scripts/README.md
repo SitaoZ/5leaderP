@@ -32,7 +32,7 @@ optional arguments:
 ```
 - Example
 
-A work.sh in Arabidopsis
+A work_tair.sh in Arabidopsis
 ```bash
 python RNA_assemble_ath.py --gtf /home/zhusitao/database/plant/ath/tair10/araport11.gff \
                            --genome /home/zhusitao/database/plant/ath/tair10/hisat2_index/TAIR10.fa \
@@ -40,6 +40,55 @@ python RNA_assemble_ath.py --gtf /home/zhusitao/database/plant/ath/tair10/arapor
                            --adapter AGATCGGAAGAGCACACGTCTGAACTCCAGTCAC,AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGTA \
                            --run_mode True \
                            --pair_mode True \
-                           --sample SRR545214_1.fastq.gz,SRR545214_2.fastq.gz \
-                           --output /home/zhusitao/database/plant/ath/RNA/Dzjx/pysradb_downloads_leaves/SRP014919/SRX179402/assemble
+                           --sample DRR146853_1.fastq.gz,DRR146853_2.fastq.gz \
+                           --output /home/zhusitao/database/plant/ath/RNA/Dzjx/pysradb_downloads_leaves/DRP004486/DRX137645/assemble  
 ```
+
+### Long-read assembly
+
+The `SMRT_ONT_assembly.sh` is a command pipeline for SMRT and ONT reads assembly.
+
+
+
+### CAGE-Seq pipeline
+The `CAGE_step1_ctss_call.py` and  `CAGE_step2_peak_call.sh` are used for CAGE-Seq analysis.
+
+- CTSS calling 
+```bash
+$ python CAGE_step1_ctss_call.py -h 
+usage: CAGE_step1_ctss_call.py [-h] [--index INDEX] [--output OUTPUT] [--sample SAMPLE] [--adapter ADAPTER] [--run_mode RUN_MODE]
+                               [--pair_mode PAIR_MODE]
+
+CAGE peak calling main program
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --index INDEX, -i INDEX
+                        genome hisat index
+  --output OUTPUT, -o OUTPUT
+                        result output dir
+  --sample SAMPLE, -s SAMPLE
+                        sample list, separate by comma
+  --adapter ADAPTER, -a ADAPTER
+                        adapter for platform,if paired, separate by comma
+  --run_mode RUN_MODE, -r RUN_MODE
+                        switch run mode
+  --pair_mode PAIR_MODE, -p PAIR_MODE
+                        library pair or single
+```
+
+- aTSS peak identification
+```bash
+/home/zhusitao/project/DPI/dpi1-master/identify_tss_peaks.sh -g /home/zhusitao/project/DPI/01.ath/CTSS_for_DPI/chrom.sizes \
+                                                             -i 'CTSS_for_DPI/*.ctss.gz' -d N -o CTSS_22samples_v2
+```
+### Model performance comparison
+The `Model_performance` dir contains the comparison scripts for evaluating the performance of various tools.
+We selected `TransPrise`, `TSSFinder` and `TSSPlant` compared with the 5leaderP tool in classification and regression.
+each `work.sh` describe the comparison in detail.
+
+### Figure scripts
+The `Fig.1-5` dirs contain the analysis scripts for results visualization.
+
+### Supplementary figures scripts
+The `FigS.1-8` dirs include the analysis scripts for supplementary results visualization.
