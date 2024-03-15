@@ -1,9 +1,9 @@
 ## Analysis Scripts in 5leaderP
 
 ### Short-read assembly 
-The assembly pipelines have been deployed in Assembly_pipeline directory. Those pipelines includes short-read and long-read.
+The assembly pipelines have been deployed in `Assembly_pipeline` directory. Those pipelines include short-read and long-read assembly.
 
-The python RNA_assemble_ath.py is used for transcriptom assembly in next-generation sequencing reads.
+The python `RNA_assemble_ath.py` is used for transcriptom assembly in next-generation sequencing reads.
 You can get help by `python RNA_assemble_ath.py -h` in command line.
 ```bash
 $ python RNA_assemble_ath.py -h 
@@ -46,11 +46,12 @@ python RNA_assemble_ath.py --gtf /home/zhusitao/database/plant/ath/tair10/arapor
 
 ### Long-read assembly
 
-The `SMRT_ONT_assembly.sh` is a command pipeline for SMRT and ONT reads assembly.
+The `SMRT_ONT_assembly.sh` is a command pipeline for SMRT and ONT reads assembly. The pipeline adopted `Minimap2` and `TALON` for long-read assembly.
 
 
 
 ### CAGE-Seq pipeline
+
 The `CAGE_step1_ctss_call.py` and  `CAGE_step2_peak_call.sh` are used for CAGE-Seq analysis.
 
 - CTSS calling 
