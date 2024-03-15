@@ -1,11 +1,9 @@
-# version 20230220
-cp ../../final_version/class/github/current/ResNet/predict_result.csv .
-cp ../../final_version/class/github/current/ResNet/ROC_Curve_fold10_data.csv .
-cp ../../final_version/class/github/current/ResNet/PR_Curve_fold10_data.csv .
-cp /home/zhusitao/AI/TSS_Predict/rice/TransPrise-master/final_version/get_test.py .
+# copy model scripts
+cp -r ../../final_version/class/github/current_new/ResNet/aTSS .
+# copy saved model
+cp ../../final_version/class/github/current_new/ResNet/saved_model.h5 .
+# copy test scripts
+cp ../../final_version/class/github/current_new/ResNet/test/ath/test5leaderC.py .
 
-
-# version 20230323
-cp ../../final_version/class/github/current_new/ResNet/predict_result.csv .
-cp ../../final_version/class/github/current_new/ResNet/ROC_Curve_fold10_data.csv .
-cp ../../final_version/class/github/current_new/ResNet/PR_Curve_fold10_data.csv .
+# predict 
+python test5leaderC.py --model resnet --test_data_path test_class_data.npy --test_label_path test_class_label.npy --model_dict_path saved_model.h5
