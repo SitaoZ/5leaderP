@@ -8,9 +8,12 @@ The `hold-out` data is used for model performance comparison. each dir contains 
 cp /home/zhusitao/AI/TSS_Predict/ath/regression/predict_peak.csv .
 
 # step2
+# Regression models including attention.pt, cnn.pt, gru.pt, lstm.pt and resnet.pt should exist in current dir
+# scaler.joblib also exists
 python predict5leaderL.py --predict_data_path predict_peak.csv --output predict_again.csv
 
 # step3
+# calculate the MAE from predict_again.csv
 python get_mae.py
 ```
 
