@@ -385,7 +385,7 @@ timagetk=2.1.0=pypi_0
 tk=8.6.10=hbc83047_0
 toml=0.10.1=py_0
 toolz=0.10.0=py_0
-torch=1.10.1=pypi_0
+torch>=1.13.1
 tornado>=6.3.3
 tqdm=4.47.0=py_0
 traitlets=4.3.3=py38_0
