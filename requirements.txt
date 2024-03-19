@@ -325,7 +325,7 @@ r-rpart=4.1_13=mro351hd10c6a6_0
 r-runit=0.4.26=mro351_0
 r-spatial=7.3_11=mro351_0
 r-survival=2.41_3=mro351_0
-ray=1.9.1=pypi_0
+ray<= 2.6.3
 readline=8.0=h7b6447c_0
 regex=2020.6.8=py38h7b6447c_0
 requests=2.25.1=pypi_0
