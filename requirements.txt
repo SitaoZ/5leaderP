@@ -148,7 +148,7 @@ jupyter=1.0.0=py38_7
 jupyter_client=6.1.6=py_0
 jupyter_console=6.1.0=py_0
 jupyter_core=4.6.3=py38_0
-jupyterlab=2.1.5=py_0
+jupyterlab>=3.6.7
 jupyterlab_server=1.2.0=py_0
 keras=2.1.6=pypi_0
 keras-preprocessing=1.1.2=pypi_0
@@ -241,7 +241,7 @@ pcre=8.44=he6710b0_0
 pep8=1.7.1=py38_0
 pexpect=4.8.0=py38_0
 pickleshare=0.7.5=py38_1000
-pillow=10.0.0=pypi_0
+pillow>=10.2.0
 pip=20.1.1=py38_1
 pixman=0.40.0=h7b6447c_0
 pkginfo=1.5.0.1=py38_0
