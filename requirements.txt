@@ -97,7 +97,7 @@ future>=0.18.3
 gcc_impl_linux-64=7.3.0=habb00fd_1
 gcc_linux-64=7.3.0=h553295d_15
 get_terminal_size=1.0.0=haa9412d_0
-gevent=20.6.2=py38h7b6447c_0
+gevent>=23.9.0
 gffutils=0.10.1=pypi_0
 gfortran_impl_linux-64=7.3.0=hdf63c60_1
 gfortran_linux-64=7.3.0=h553295d_15
